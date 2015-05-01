@@ -1,0 +1,1 @@
+# trytond-picking-list-report
