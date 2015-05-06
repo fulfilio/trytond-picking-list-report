@@ -82,7 +82,6 @@ minor_version = int(minor_version)
 
 requires = []
 
-MODULE2PREFIX = {}
 
 MODULE = "picking_list_report"
 PREFIX = "openlabs"
@@ -100,6 +99,12 @@ requires.append(
         major_version, minor_version, major_version, minor_version + 1
     )
 )
+
+requires.append(
+    'openlabs_report_webkit >= %s.%s, < %s.%s' % (
+        major_version, minor_version, major_version, minor_version + 1
+    )
+)
 setup(
     name='%s_%s' % (PREFIX, MODULE),
     version=info.get('version', '0.0.1'),
@@ -113,10 +118,12 @@ setup(
         'trytond.modules.%s.tests' % MODULE,
     ],
     package_data={
-        'trytond.modules.%s' % MODULE: info.get('xml', [])
-        + info.get('translation', [])
-        + ['tryton.cfg', 'locale/*.po', 'tests/*.rst', 'reports/*.odt']
-        + ['view/*.xml'],
+        'trytond.modules.%s' % MODULE: info.get('xml', []) +
+        info.get('translation', []) +
+        ['tryton.cfg', 'locale/*.po', 'tests/*.rst', 'reports/*.html'] +
+        ['view/*.xml', 'reports/css/bootstrap/css/*'] +
+        ['reports/css/bootstrap/fonts/*', 'reports/css/font-awesome/css/*'] +
+        ['reports/css/font-awesome/fonts/*']
     },
     classifiers=[
         'Development Status :: 4 - Beta',

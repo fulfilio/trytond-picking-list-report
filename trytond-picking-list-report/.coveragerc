@@ -1,5 +1,0 @@
-[run]
-source = trytond.modules.picking_list_report
-
-[report]
-omit = */tests/*, */setup.py
