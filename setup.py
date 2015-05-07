@@ -81,7 +81,7 @@ major_version = int(major_version)
 minor_version = int(minor_version)
 
 requires = []
-
+MODULE2PREFIX = {}
 
 MODULE = "picking_list_report"
 PREFIX = "openlabs"
